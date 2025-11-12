@@ -47,31 +47,59 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="mx-6 bg-white">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-10 border-b border-slate-500/30 text-slate-500">
-                    <div>
-                        <Link href="/" className="text-4xl font-semibold text-slate-700">
-                            <span className="text-green-600">go</span>cart<span className="text-green-600 text-5xl leading-0">.</span>
+        <footer className="relative mx-6 mt-20 overflow-hidden">
+            {/* Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-green-900 rounded-3xl"></div>
+            
+            {/* Animated decorative elements */}
+            <div className="absolute top-10 right-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-20 left-10 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl animate-float" style={{animationDelay: '1.5s'}}></div>
+            
+            <div className="relative z-10 max-w-7xl mx-auto">
+                <div className="flex flex-col md:flex-row items-start justify-between gap-10 py-16 px-8 border-b border-white/10 text-slate-300">
+                    <div className="max-w-md">
+                        <Link href="/" className="inline-block text-4xl font-semibold text-white hover:scale-105 transition-transform">
+                            <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">go</span>
+                            <span className="text-white">cart</span>
+                            <span className="bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent text-5xl leading-0">.</span>
                         </Link>
-                        <p className="max-w-[410px] mt-6 text-sm">Welcome to gocart, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.</p>
-                        <div className="flex items-center gap-3 mt-5">
+                        <p className="mt-6 text-sm leading-relaxed text-slate-400">
+                            Welcome to gocart, your ultimate destination for the latest and smartest gadgets. From smartphones and smartwatches to essential accessories, we bring you the best in innovation — all in one place.
+                        </p>
+                        <div className="flex items-center gap-3 mt-6">
                             {socialIcons.map((item, i) => (
-                                <Link href={item.link} key={i} className="flex items-center justify-center w-10 h-10 bg-slate-100 hover:scale-105 hover:border border-slate-300 transition rounded-full">
-                                    <item.icon />
+                                <Link 
+                                    href={item.link} 
+                                    key={i} 
+                                    className="group relative flex items-center justify-center w-11 h-11 bg-white/5 hover:bg-gradient-to-br hover:from-green-400 hover:to-emerald-500 border border-white/10 hover:border-transparent transition-all duration-300 rounded-xl hover:scale-110 hover:rotate-6"
+                                >
+                                    <div className="group-hover:[&>svg>path]:stroke-white transition-all">
+                                        <item.icon />
+                                    </div>
                                 </Link>
                             ))}
                         </div>
                     </div>
-                    <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5 text-sm ">
+                    <div className="flex flex-wrap justify-between w-full md:w-[50%] gap-8 text-sm">
                         {linkSections.map((section, index) => (
-                            <div key={index}>
-                                <h3 className="font-medium text-slate-700 md:mb-5 mb-3">{section.title}</h3>
-                                <ul className="space-y-2.5">
+                            <div key={index} className="min-w-[140px]">
+                                <h3 className="font-semibold text-white text-base mb-5 bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
+                                    {section.title}
+                                </h3>
+                                <ul className="space-y-3">
                                     {section.links.map((link, i) => (
-                                        <li key={i} className="flex items-center gap-2">
-                                            {link.icon && <link.icon />}
-                                            <Link href={link.path} className="hover:underline transition">{link.text}</Link>
+                                        <li key={i} className="flex items-center gap-2 group">
+                                            {link.icon && (
+                                                <span className="group-hover:scale-110 transition-transform">
+                                                    <link.icon />
+                                                </span>
+                                            )}
+                                            <Link 
+                                                href={link.path} 
+                                                className="hover:text-green-400 hover:translate-x-1 transition-all duration-200 text-slate-400"
+                                            >
+                                                {link.text}
+                                            </Link>
                                         </li>
                                     ))}
                                 </ul>
@@ -79,9 +107,16 @@ const Footer = () => {
                         ))}
                     </div>
                 </div>
-                <p className="py-4 text-sm text-slate-500">
-                    Copyright 2025 © gocart All Right Reserved.
-                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-between py-6 px-8 text-sm text-slate-400">
+                    <p className="max-sm:mb-3">
+                        Copyright 2025 © <span className="text-green-400 font-medium">gocart</span> All Rights Reserved.
+                    </p>
+                    <div className="flex items-center gap-6">
+                        <Link href="/" className="hover:text-green-400 transition-colors">Privacy Policy</Link>
+                        <span className="text-slate-600">•</span>
+                        <Link href="/" className="hover:text-green-400 transition-colors">Terms of Service</Link>
+                    </div>
+                </div>
             </div>
         </footer>
     );
