@@ -41,21 +41,21 @@ const Navbar = () => {
 
                     {/* Desktop Menu */}
                     <div className="hidden sm:flex items-center gap-4 lg:gap-8 text-slate-600 font-medium">
-                        <Link href="/" className="hover:text-green-600 transition-colors relative group">
+                        <Link href="/" className="hover:text-green-600 transition-colors relative group focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 rounded px-2 py-1">
                             Home
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="/shop" className="hover:text-green-600 transition-colors relative group">
+                        <Link href="/shop" className="hover:text-green-600 transition-colors relative group focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 rounded px-2 py-1">
                             Shop
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="/" className="hover:text-green-600 transition-colors relative group">
+                        <Link href="/" className="hover:text-green-600 transition-colors relative group focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 rounded px-2 py-1">
                             About
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
                         </Link>
-                        <Link href="/" className="hover:text-green-600 transition-colors relative group">
+                        <Link href="/" className="hover:text-green-600 transition-colors relative group focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 rounded px-2 py-1">
                             Contact
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-green-600 group-hover:w-full transition-all duration-300"></span>
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-green-500 to-emerald-500 group-hover:w-full transition-all duration-300"></span>
                         </Link>
 
                         <form onSubmit={handleSearch} className="hidden xl:flex items-center w-xs text-sm gap-2 bg-slate-100 px-4 py-3 rounded-full hover:shadow-md transition-all focus-within:ring-2 focus-within:ring-green-300">

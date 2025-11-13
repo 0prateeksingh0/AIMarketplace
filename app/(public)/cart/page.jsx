@@ -47,9 +47,9 @@ export default function Cart() {
     }, [cartItems, products]);
 
     return cartArray.length > 0 ? (
-        <div className="min-h-screen mx-6 text-slate-800">
+        <div className="min-h-screen mx-6 text-slate-800 animate-fade-in-up">
 
-            <div className="max-w-7xl mx-auto ">
+            <div className="max-w-7xl mx-auto">
                 {/* Title */}
                 <PageTitle heading="My Cart" text="items in your cart" linkText="Add more" />
 
@@ -67,24 +67,32 @@ export default function Cart() {
                         <tbody>
                             {
                                 cartArray.map((item, index) => (
-                                    <tr key={index} className="space-x-2">
+                                    <tr 
+                                        key={index} 
+                                        className="space-x-2 animate-fade-in-scale hover:bg-slate-50 transition-colors group"
+                                        style={{ animationDelay: `${index * 100}ms` }}
+                                    >
                                         <td className="flex gap-3 my-4">
-                                            <div className="flex gap-3 items-center justify-center bg-slate-100 size-18 rounded-md">
-                                                <Image src={item.images[0]} className="h-14 w-auto" alt="" width={45} height={45} />
+                                            <div className="flex gap-3 items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 size-18 rounded-xl border border-slate-200 group-hover:border-green-300 transition-all group-hover:scale-105">
+                                                <Image src={item.images[0]} className="h-14 w-auto" alt={item.name} width={45} height={45} />
                                             </div>
                                             <div>
-                                                <p className="max-sm:text-sm">{item.name}</p>
-                                                <p className="text-xs text-slate-500">{item.category}</p>
-                                                <p>{currency}{item.price}</p>
+                                                <p className="max-sm:text-sm font-medium group-hover:text-green-600 transition-colors">{item.name}</p>
+                                                <p className="text-xs text-slate-500 mt-1 px-2 py-0.5 bg-slate-100 rounded-full inline-block">{item.category}</p>
+                                                <p className="mt-1 font-semibold text-green-600">{currency}{item.price}</p>
                                             </div>
                                         </td>
                                         <td className="text-center">
                                             <Counter productId={item.id} />
                                         </td>
-                                        <td className="text-center">{currency}{(item.price * item.quantity).toLocaleString()}</td>
+                                        <td className="text-center font-bold text-slate-800">{currency}{(item.price * item.quantity).toLocaleString()}</td>
                                         <td className="text-center max-md:hidden">
-                                            <button onClick={() => handleDeleteItemFromCart(item.id)} className=" text-red-500 hover:bg-red-50 p-2.5 rounded-full active:scale-95 transition-all">
-                                                <Trash2Icon size={18} />
+                                            <button 
+                                                onClick={() => handleDeleteItemFromCart(item.id)} 
+                                                className="text-red-500 hover:bg-red-50 p-2.5 rounded-full active:scale-95 transition-all hover:scale-110 group/btn"
+                                                aria-label="Remove item from cart"
+                                            >
+                                                <Trash2Icon size={18} className="group-hover/btn:rotate-12 transition-transform" />
                                             </button>
                                         </td>
                                     </tr>
@@ -97,8 +105,18 @@ export default function Cart() {
             </div>
         </div>
     ) : (
-        <div className="min-h-[80vh] mx-6 flex items-center justify-center text-slate-400">
-            <h1 className="text-2xl sm:text-4xl font-semibold">Your cart is empty</h1>
+        <div className="min-h-[80vh] mx-6 flex flex-col items-center justify-center text-slate-400 animate-fade-in-scale">
+            <div className="text-8xl mb-6 animate-float">🛒</div>
+            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-slate-400 to-slate-600 bg-clip-text text-transparent mb-4">
+                Your cart is empty
+            </h1>
+            <p className="text-slate-500 mb-8">Looks like you haven't added anything yet</p>
+            <a 
+                href="/shop"
+                className="px-8 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-full font-semibold shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all duration-300"
+            >
+                Start Shopping
+            </a>
         </div>
     )
 }

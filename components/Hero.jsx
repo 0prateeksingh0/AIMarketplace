@@ -36,9 +36,12 @@ const Hero = () => {
                             </div>
                             <Zap className='text-yellow-500 mb-2' size={24} fill='currentColor' />
                         </div>
-                        <button className='bg-gradient-to-r from-slate-800 to-slate-900 text-white text-sm font-semibold py-3 px-8 sm:py-5 sm:px-14 mt-6 sm:mt-10 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2'>
+                        <button 
+                            className='bg-gradient-to-r from-slate-800 to-slate-900 text-white text-sm font-semibold py-3 px-8 sm:py-5 sm:px-14 mt-6 sm:mt-10 rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-2 group/btn focus:outline-none focus:ring-4 focus:ring-slate-400 focus:ring-offset-2'
+                            aria-label="Learn more about our products"
+                        >
                             LEARN MORE 
-                            <ArrowRightIcon size={16} />
+                            <ArrowRightIcon size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                         </button>
                     </div>
                     <Image className='sm:absolute bottom-0 right-0 md:right-10 w-full sm:max-w-sm group-hover:scale-110 transition-transform duration-500' src={assets.hero_model_img} alt="" />

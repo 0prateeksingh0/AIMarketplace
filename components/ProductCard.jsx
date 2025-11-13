@@ -12,7 +12,11 @@ const ProductCard = ({ product }) => {
     const rating = Math.round(product.rating.reduce((acc, curr) => acc + curr.rating, 0) / product.rating.length);
 
     return (
-        <Link href={`/product/${product.id}`} className='group max-xl:mx-auto block'>
+        <Link 
+            href={`/product/${product.id}`} 
+            className='group max-xl:mx-auto block focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-offset-2 rounded-2xl'
+            aria-label={`View details for ${product.name}`}
+        >
             <div className='relative bg-gradient-to-br from-slate-50 to-slate-100 h-40 sm:w-60 sm:h-68 rounded-2xl flex items-center justify-center overflow-hidden border border-slate-200/50 group-hover:border-green-300 transition-all duration-300 card-shadow'>
                 {/* Hover overlay */}
                 <div className='absolute inset-0 bg-gradient-to-br from-green-400/0 to-emerald-400/0 group-hover:from-green-400/5 group-hover:to-emerald-400/5 transition-all duration-300'></div>

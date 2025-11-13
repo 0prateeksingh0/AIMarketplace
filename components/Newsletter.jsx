@@ -16,12 +16,17 @@ const Newsletter = () => {
                     
                     <div className='relative flex bg-white text-sm p-1.5 rounded-full w-full shadow-xl'>
                         <input 
-                            className='flex-1 pl-6 py-3 outline-none bg-transparent placeholder-slate-400 text-slate-700' 
+                            className='flex-1 pl-6 py-3 outline-none bg-transparent placeholder-slate-400 text-slate-700 focus:ring-0' 
                             type="email" 
                             placeholder='Enter your email address' 
+                            aria-label="Email address"
                             required
                         />
-                        <button className='font-semibold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3.5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2'>
+                        <button 
+                            className='font-semibold bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3.5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2'
+                            type="submit"
+                            aria-label="Subscribe to newsletter"
+                        >
                             <span>Get Updates</span>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.33203 8H12.6654M12.6654 8L8.66536 4M12.6654 8L8.66536 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
